@@ -23,9 +23,7 @@ const players = {
 
 
 /*----- app's state (variables) -----*/
-let boardState, gameWon, catsGame, turn, currentPlayer, winner;
-let round = 1;
-let animatedEl;
+let boardState, gameWon, catsGame, turn, currentPlayer, winner, round, animatedEl;
 
 
 /*----- cached element references -----*/
@@ -46,16 +44,12 @@ playAgainBtn.addEventListener('click', init);
 init();
 
 function init() {
+    round = 1;
     turn = 1;
-    boardState = [];
+    boardState = new Array(9).fill(null);
     gameWon = false;
     catsGame = false;
     round % 2 === 1 ? currentPlayer = 1 : currentPlayer = -1;
-
-    //Set boardState to null for every section
-    gameBoardSections.forEach(function() {
-        boardState.push(null);
-    });
 
     render();
 }
@@ -115,7 +109,7 @@ function renderWinnerMessage() {
 }
 
 function renderTurnMessage() {
-    gameMessageEl.innerText = `${players[currentPlayer].name}'s (${markings[currentPlayer]}) Turn`;
+    gameMessageEl.innerText = `${markings[currentPlayer]}'s Turn`;
 }
 
 function renderCatsGame() {
