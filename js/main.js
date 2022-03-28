@@ -23,8 +23,10 @@ const players = {
 
 
 /*----- app's state (variables) -----*/
-let boardState, gameWon, catsGame, turn, currentPlayer, winner, round, animatedEl;
+let boardState, gameWon, catsGame, turn, currentPlayer, winner, animatedEl;
 
+//Keep Global round count
+let round = 1;
 
 /*----- cached element references -----*/
 let gameBoard = document.querySelector('#game-board');
@@ -44,7 +46,6 @@ playAgainBtn.addEventListener('click', init);
 init();
 
 function init() {
-    round = 1;
     turn = 1;
     boardState = new Array(9).fill(null);
     gameWon = false;
