@@ -117,7 +117,7 @@ function renderCatsGame() {
 }
 
 function renderAnimation() {
-    animatedEl.querySelector('div').style = 'animation: placeMarker 100ms forwards';
+    animatedEl.querySelector('div').style = '-webkit-animation: placeMarker 150ms forwards; animation: placeMarker 150ms forwards';
 }
 
 function renderScore() {
